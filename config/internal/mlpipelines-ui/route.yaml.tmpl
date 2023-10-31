@@ -6,15 +6,10 @@ metadata:
   labels:
     app: ds-pipeline-ui-{{.Name}}
     component: data-science-pipelines
-  annotations:
-    kubernetes.io/tls-acme: "true"
 spec:
   to:
     kind: Service
     name: ds-pipeline-ui-{{.Name}}
     weight: 100
   port:
-    targetPort: 8443
-  tls:
-    termination: Reencrypt
-    insecureEdgeTerminationPolicy: Redirect
+    targetPort: 8080
